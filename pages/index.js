@@ -79,6 +79,7 @@ export default function Home() {
                 <a
                   href="https://www.instagram.com/neutronian_/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <AiFillInstagram
                     href="https://www.instagram.com/neutronian_/"
@@ -94,6 +95,7 @@ export default function Home() {
                 <a
                   href="https://www.linkedin.com/in/pratikchvn/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <AiFillLinkedin
                     className="cursor-pointer"
@@ -105,7 +107,11 @@ export default function Home() {
                     }}
                   />
                 </a>
-                <a href="https://github.com/neutr0nian" target="_blank">
+                <a
+                  href="https://github.com/neutr0nian"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <AiFillGithub
                     className="cursor-pointer"
                     onMouseOver={(event) => {
@@ -134,8 +140,11 @@ export default function Home() {
             </h3>
           </div>
           <div className="lg:flex gap-10 ">
-            {languages.map((lang) => (
-              <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            {languages.map((lang, index) => (
+              <div
+                key={index}
+                className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
+              >
                 <h3 className="text-lg font-medium ">{lang}</h3>
               </div>
             ))}
@@ -160,9 +169,12 @@ export default function Home() {
             modules={[Autoplay]}
             className="mySwiper"
           >
-            {tools.map((tool) => (
-              <SwiperSlide>
-                <div className="text-center shadow-lg p-7 py-4 rounded-xl my-10 border border-cyan-300 dark:bg-gray-800">
+            {tools.map((tool, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  key={index}
+                  className="text-center shadow-lg p-7 py-4 rounded-xl my-10 border border-cyan-300 dark:bg-gray-800"
+                >
                   <h3 className="text-lg font-medium dark:text-white">
                     {tool}
                   </h3>
@@ -183,8 +195,9 @@ export default function Home() {
               Few recent and great projects I worked on
             </p>
           </div>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <Project
+              key={index}
               id={parseInt(project.index)}
               project={project}
               link={project.link}
