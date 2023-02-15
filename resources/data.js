@@ -1,56 +1,77 @@
 import pmtool from "../public/pmtool.png";
 import stack from "../public/stack.png";
-import foodService from "../public/foodService.png";
+import crypto from "../public/assets/crypto.png";
+import focused from "../public/assets/focused.png";
+import servicedoor from "../public/assets/servicedoor.png";
 
-const languages = ["Javascript", "Python", "Ruby", "C++", "SQL"];
+const roles = [
+  "Full Stack Developer",
+  "Problem Solver",
+  "UI Developer",
+  "UI/UX Designer",
+  "Blockchain Developer",
+];
+
+const languages = ["Javascript", "Python", "Java", "C++", "SQL"];
 const tools = [
-  "React",
-  "Vue",
-  "Node",
-  "Tailwind",
-  "REST",
-  "Docker",
-  "Kafka",
-  "Flask",
-  "Tensor",
-  "Algorithms",
-  "MongoDB",
-  "MySQL",
+  { name: "React", desc: "2 years of experience" },
+  { name: "Node", desc: "mastered API design" },
+  { name: "Vue", desc: "elegant designs" },
+  { name: "Figma", desc: "UI/UX" },
+  { name: "Algorithms", desc: "optimizing code" },
+  { name: "Spring", desc: "love for OOP" },
+  { name: "MongoDB", desc: "1 year of experience" },
+  { name: "REST", desc: "20+ and counting" },
+  { name: "Redux", desc: "implemented 2 global stores" },
+  { name: "Database Systems", desc: "implemented taco DB" },
 ];
 
 const projects = [
   {
     index: "01",
-    name: "Distributed Food-service application",
-    description: `<p>A distributed message-based application built using nodejs, rabbitmq, and docker to demonstrate the implementation and working of a microservice architecture.</p>
-    <p class='py-2'>The system is broken down into three services 1. Order Service 2. Billing Service and 3. Email Service </p>
-    <p class='py-2'>Each service executes independently and pushes the output to a central queue from where other services can retrieve the required input and execute the operation.</p>
-    `,
+    name: "Focused - A Productivity Tool",
+    description:
+      "A tool which lets user focus and manage their daily or project tasks efficiently",
     techs: ["node", "api", "docker", "rabbitmq"],
     link: "https://github.com/neutr0nian/distributed-food-service",
-    img: foodService,
+    img: focused,
   },
   {
     index: "02",
-    name: "Stack Overflow - An UI concept",
-    description: `<p>A new design concept for stack overflow to make it look more elegant and organized in terms of searching and storing a particular answer for a question.</p>
-    <p class='py-2'>Currently, only front end is built with the help of stack overflow's public APIs. The project is in continous progress and will se more UI changes.</p>
-    <p class='py-2'>Upcoming releases will include features like searching, pinning the answers/articles and dark mode.</p>`,
-    techs: ["react", "API", "tailwind", "context-api"],
-    link: "https://github.com/neutr0nian/stack-overflow",
-    img: stack,
+    name: "Service Door - A Blockchain Marketplace",
+    description:
+      "A marketplace that provides services to consumers with identity and transaction protection",
+    techs: ["node", "api", "docker", "rabbitmq"],
+    link: "https://github.com/neutr0nian/distributed-food-service",
+    img: servicedoor,
   },
   {
     index: "03",
+    name: "Cryptoverse - React Cryptocurrency Application",
+    description:
+      "A application which lets user track and search cyrptocurrency's prices and news.",
+    techs: ["react", "API", "tailwind", "context-api"],
+    link: "https://github.com/neutr0nian/stack-overflow",
+    img: crypto,
+  },
+  {
+    index: "04",
     name: "Project Management Tool",
-    description: `<p>A CRM like complete full-stack application created for university professors to manage course projects and enrollment of the students in them. </p>
-        <p class='py-2'>This application included managing user data, authentication, database CRUD operations, creating user views and REST API's.</p>
-        <p class='py-2'>Being a Full-stack developer in the team of 6 also managed the project by organizing the tasks and ensuring a bug-free release in every sprint.</p>
+    description: `A Dashboard application created for University at Buffalo's professors to manage course projects and students.
       `,
     techs: ["node", "api", "docker", "rabbitmq"],
     link: "https://github.com/neutr0nian/stack-overflow",
-    img: pmtool,
+    img: focused,
+  },
+  {
+    index: "05",
+    name: "N-Body Simulation",
+    description: `Visualization of a classic scientific problem'.
+      `,
+    techs: ["node", "api", "docker", "rabbitmq"],
+    link: "https://github.com/neutr0nian/stack-overflow",
+    img: focused,
   },
 ];
 
-export { projects, languages, tools };
+export { roles, projects, languages, tools };

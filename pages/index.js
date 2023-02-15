@@ -1,52 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import Typed from "typed.js";
-import { ImageC } from "../components/ImageC";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
 import { Project } from "../components/Project";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+
 import "swiper/css";
 import "swiper/css/pagination";
-
-/** ----- data ----- */
-import { languages, projects, tools } from "../resources/data";
-
-/** ----- images ----- */
-import Image from "next/image";
-import insta from "../public/insta.png";
-import netflix from "../public/netflix.png";
-import rentaway from "../public/rentaway.png";
-import deved from "../public/dev-ed-wave.png";
-import dancestry from "../public/dancestry.png";
+import "swiper/css/navigation";
 
 /** ----- icons ----- */
-import { AiFillLinkedin, AiFillGithub, AiFillInstagram } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
+import Designs from "../components/Designs";
+import Tools from "../components/Tools";
+import Hero from "../components/Hero";
+import Skills from "../components/Skills";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
-  const el = React.useRef(null);
-  const typed = React.useRef(null);
-
-  useEffect(() => {
-    typed.current = new Typed(el.current, {
-      strings: [
-        "Web Development",
-        "Distributed Systems",
-        "UI development",
-        "Data Visualization",
-      ],
-      typeSpeed: 90,
-      backSpeed: 40,
-      loop: true,
-      cursorChar: "_",
-    });
-
-    return () => {
-      typed.current.destroy();
-    };
-  }, []);
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -57,198 +27,41 @@ export default function Home() {
       </Head>
       <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-
-        <section className="min-h-scree">
-          <div className="lg:flex py-10">
-            <div>
-              <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
-                Pratik Chavan
-              </h2>
-              <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
-                I solve problems in <span ref={el} />
-              </h3>
-              <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-lg">
-                An enthusiastic curious learner and a problem solver, interested
-                in fields like Web Development, UI/UX Engineering, Machine
-                Learning, and Data
-              </p>
-              <p className="text-md leading-8 max-w-xl mx-auto md:text-lg text-gray-800 dark:text-gray-200">
-                Connect with me:
-              </p>
-              <div className="text-5xl flex gap-16 py-4 text-gray-600 dark:text-gray-400">
-                <a
-                  href="https://www.instagram.com/neutronian_/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiFillInstagram
-                    href="https://www.instagram.com/neutronian_/"
-                    className="cursor-pointer"
-                    onMouseOver={(event) => {
-                      event.target.classList.add("dark:text-white");
-                    }}
-                    onMouseOut={(event) => {
-                      event.target.classList.remove("dark:text-white");
-                    }}
-                  />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/pratikchvn/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiFillLinkedin
-                    className="cursor-pointer"
-                    onMouseOver={(event) => {
-                      event.target.classList.add("dark:text-white");
-                    }}
-                    onMouseOut={(event) => {
-                      event.target.classList.remove("dark:text-white");
-                    }}
-                  />
-                </a>
-                <a
-                  href="https://github.com/neutr0nian"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiFillGithub
-                    className="cursor-pointer"
-                    onMouseOver={(event) => {
-                      event.target.classList.add("dark:text-white");
-                    }}
-                    onMouseOut={(event) => {
-                      event.target.classList.remove("dark:text-white");
-                    }}
-                    title={"visit my github profile"}
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden md:h-96 md:w-96">
-              <Image src={deved} layout="fill" objectFit="cover" />
-            </div>
-          </div>
+        <section className="mx-auto my-10">
+          <Hero />
         </section>
 
         {/** ------- lang section ------- */}
 
-        <section>
-          <div>
-            <h3 className="text-3xl py-1 dark:text-white ">
-              Languages I speak
-            </h3>
-          </div>
-          <div className="lg:flex gap-10 ">
-            {languages.map((lang, index) => (
-              <div
-                key={index}
-                className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
-              >
-                <h3 className="text-lg font-medium ">{lang}</h3>
-              </div>
-            ))}
-          </div>
+        <section className="my-[180px] text-center">
+          <Skills />
         </section>
 
         {/** ------- tools section ------- */}
 
-        <section className="mt-10">
-          <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Tools I use</h3>
-          </div>
-          <Swiper
-            slidesPerView={6}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            autoplay={{
-              delay: 2000,
-            }}
-            modules={[Autoplay]}
-            className="mySwiper"
-          >
-            {tools.map((tool, index) => (
-              <SwiperSlide key={index}>
-                <div
-                  key={index}
-                  className="text-center shadow-lg p-7 py-4 rounded-xl my-10 border border-cyan-300 dark:bg-gray-800"
-                >
-                  <h3 className="text-lg font-medium dark:text-white">
-                    {tool}
-                  </h3>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <section className="my-[180px] text-center">
+          <Tools />
         </section>
 
         {/** ------- work section ------- */}
 
-        <section className="py-10">
-          <div>
-            <h3 className="text-3xl py-1 dark:text-white ">
-              Some of my exciting work
-            </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Few recent and great projects I worked on
-            </p>
-          </div>
-          {projects.map((project, index) => (
-            <Project
-              key={index}
-              id={parseInt(project.index)}
-              project={project}
-              link={project.link}
-              img={project.img}
-            />
-          ))}
+        <section className="py-10 text-center">
+          <Project />
         </section>
 
-        <section>
-          <div className="py-4">
-            <h3 className="text-3xl text-gray-800 dark:text-white">
-              I love creating
-            </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Some of my design work in Figma
-            </p>
-            <div className="flex flex-col lg:flex-row lg:flex-wrap gap-5 py-4">
-              <ImageC
-                img={insta}
-                link={
-                  "https://www.figma.com/proto/HyOnnLeeSpSAoIiink0Sir/Instagram?node-id=0%3A1"
-                }
-              />
-              <ImageC
-                img={netflix}
-                link={
-                  "https://www.figma.com/proto/wsg38gflsOFfNJAMGeW8Zt/Netflix?page-id=0%3A1&node-id=1%3A2&viewport=448%2C395%2C0.59&scaling=min-zoom"
-                }
-              />
-              <ImageC
-                img={rentaway}
-                link={
-                  "https://www.figma.com/proto/2A7q6fW9It15kMy3GJoDW5/RentAway?page-id=0%3A1&node-id=6%3A4&scaling=scale-down-width"
-                }
-              />
-              <ImageC
-                img={dancestry}
-                link={
-                  "https://www.figma.com/proto/nmK0SMpb0NUVKKVG0uYhAv/Dancestry?page-id=0%3A1&node-id=0%3A1&viewport=315%2C278%2C0.49&scaling=scale-down"
-                }
-              />
+        <section className="my-20">
+          <div className="group flex justify-evenly ">
+            <div className="flex justify-center gap-2 px-4 cursor-pointer justify-items-center group-hover:bg-white group-hover:text-gray-900 group-hover:border-white rounded-full p-2 border-2 border-teal-600 dark:text-white">
+              <AiFillGithub className="text-3xl" />
+              <p className="text-xl font-medium ">Learn more about my work</p>
             </div>
           </div>
         </section>
-
-        <section>
-          <h3 className="pt-14 font-light text-3xl text-center text-gray-800 dark:text-gray-200">
-            Thank you for visiting
-          </h3>
-          <Footer />
+        <section className="my-20">
+          <Designs />
         </section>
+
+        <Footer />
       </main>
     </div>
   );
