@@ -19,6 +19,7 @@ const Tools = () => {
               scale: 1,
             }}
             transition={{ duration: 0.7, delay: index / 100 }}
+            key={index}
           >
             <div
               key={index}
