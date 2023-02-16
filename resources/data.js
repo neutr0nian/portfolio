@@ -1,5 +1,4 @@
-import pmtool from "../public/pmtool.png";
-import stack from "../public/stack.png";
+import pmtool from "../public/assets/pmtool.png";
 import crypto from "../public/assets/crypto.png";
 import focused from "../public/assets/focused.png";
 import servicedoor from "../public/assets/servicedoor.png";
@@ -61,16 +60,7 @@ const projects = [
       `,
     techs: ["node", "api", "docker", "rabbitmq"],
     link: "https://github.com/neutr0nian/stack-overflow",
-    img: focused,
-  },
-  {
-    index: "05",
-    name: "N-Body Simulation",
-    description: `Visualization of a classic scientific problem'.
-      `,
-    techs: ["node", "api", "docker", "rabbitmq"],
-    link: "https://github.com/neutr0nian/stack-overflow",
-    img: focused,
+    img: pmtool,
   },
 ];
 

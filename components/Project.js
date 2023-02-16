@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export const Project = ({ id, img, project, link }) => {
   return (
-    <div className="flex flex-wrap gap-4 lg:w-[1200px] my-2 rounded-lg justify-center mx-auto ">
+    <div className="flex flex-wrap gap-4  my-2 rounded-lg justify-center mx-auto ">
       <motion.div
         initial={{ opacity: 0, y: 150 }}
         whileInView={{
